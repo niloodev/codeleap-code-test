@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { CenterWrapper } from '../components'
+
 export default function Main() {
-    return <>Main</>
+    return <CenterWrapper>MAIN</CenterWrapper>
 }

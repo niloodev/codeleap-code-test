@@ -35,6 +35,10 @@ const ButtonStyled = Styled(motion.button)`
         background-color: var(--quaternary);
         color: var(--primary);
     }
+
+    @media (max-width: 500px) {
+        flex: 1;
+    }
 `
 
 export function Button({

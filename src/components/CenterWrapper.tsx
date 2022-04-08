@@ -4,7 +4,7 @@ import React from 'react'
 import Styled from 'styled-components'
 
 // import motion (to make animated jsx components)
-import { motion, HTMLMotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Wrapper = Styled(motion.div)`
     width: 100%;

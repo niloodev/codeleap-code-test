@@ -8,8 +8,8 @@ import { motion, HTMLMotionProps } from 'framer-motion'
 
 // (I made one component that joins input and textarea, to make easier to applicate it on app)
 const InputStyled = Styled(motion.input)`
-    min-height: 16px;
     padding: 6px 11px;
+    height: 16px;
     
     border-radius: 4px;
     border: 1px solid var(--tertiary);
