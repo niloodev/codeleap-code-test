@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+
+// import createGlobalStyle component of styled-components
 import { createGlobalStyle } from 'styled-components'
 
 // export theme-pallete object and type
 // this makes variables easily accessible through javascript, possibilitating easy and soft integrations
-export const ThemePalette: ThemePaletteType = {
+export const themePalette: ThemePalette = {
     colors: {
         primary: '#000000',
         secondary: '#DDDDDD',
@@ -11,7 +14,7 @@ export const ThemePalette: ThemePaletteType = {
     },
 }
 
-export interface ThemePaletteType {
+export interface ThemePalette {
     colors: {
         primary: string
         secondary: string
@@ -51,4 +54,22 @@ export const GlobalStyle = createGlobalStyle`
         background-color: var(--secondary);
         font-family: 'Roboto';
     }
+
+    /* scrollbar customization */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--secondary);
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 5px;
+    }
 `
+
+// make styled-components DefaultTheme extends ThemePaletteType from global-style
+declare module 'styled-components' {
+    export interface DefaultTheme extends ThemePalette {}
+}

@@ -1,17 +1,17 @@
 import React from 'react'
 
 // import styled-components
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
 // import motion (to make animated jsx components)
 import { motion } from 'framer-motion'
 
-const ButtonStyled = Styled(motion.button)`
+const ButtonStyled = styled(motion.button)`
     width: 111px;
 
-    padding: 6px 0;
+    padding: 7.5px 0;
 
-    font-size: 16px;
+    font-size: 14.5px;
     font-weight: 700;
 
     transition: all 0.2s ease;
@@ -22,7 +22,9 @@ const ButtonStyled = Styled(motion.button)`
     cursor: pointer;
     user-select: none;
 
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &[disabled] {
         pointer-events: none;
@@ -31,13 +33,13 @@ const ButtonStyled = Styled(motion.button)`
         color: var(--secondary);
     }
 
-    &[data-contrast = "contrast"] {
+    &[data-contrast='contrast'] {
         background-color: var(--quaternary);
         color: var(--primary);
     }
 
     @media (max-width: 500px) {
-        flex: 1;
+        width: 100%;
     }
 `
 
