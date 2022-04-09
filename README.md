@@ -1,46 +1,54 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <br>
+    <a href="https://codeleap.co.uk/"> <img src="./codeleap-banner.svg" alt="CodeLeap" width="60%"></a>
+  <br>
+    CODE LEAP ENGINEERING TEST by niloodev 🐸
+  <br>
+</h1>
 
-## Available Scripts
+<h4 align="center">A simple CRUD application builded with <a href="https://pt-br.reactjs.org/" target="_blank">React</a> and <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a></h4>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#proposal">Proposal</a> •
+  <a href="#tools">Tools</a> •
+  <a href="#author">Author</a>
+</p>
 
-### `npm start`
+![screenshot](./codeleap-example.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Proposal
+* The application must have CRUD functionalities; Create Posts, Read Posts, Update Posts and Delete Posts.
+* Must be redirected to the "end consumer" and not to other developers, so usability and communicability are very important.
+* Achieve the task with the best logic possible.
+* Redux is necessary, and the initial folder structure should be: 
+* > **/components** *for custom stuff*
+* > **/actions** *for dispatched actions and NETWORK requests*
+* > **/redux** *for the reducers and store*
+* > **/pages** *where the actual page content will be*
+* Hooks ([React Functional Components](https://pt-br.reactjs.org/docs/components-and-props.html)) instead of classes.
+* Must have Signup and Main pages, with two modals. (one to delete, and the other to update posts)
+* Can use any tools available.
+* Follow [Figma Prototype](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=5150%3A51)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tools
 
-### `npm test`
+This application uses the following open-source packages:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://pt-br.reactjs.org/) (Main "framework")
+- [TypeScript](https://www.typescriptlang.org/) (Strongly typed programming language that builds on JavaScript)
+- [Redux](https://redux.js.org/) (Create a global state to application)
+- [Styled Components](https://styled-components.com/) (CSS in JS / TS styling)
+- [Framer Motion](https://www.framer.com/motion/) (Animation framework)
+- [Axios](https://axios-http.com/ptbr/docs/intro) (API requests and CRUD functionalities)
+- [Moment.Js](https://momentjs.com/) (DateTime converter)
+- [ESLint](https://highlightjs.org/) (Javascript [linter](https://sourcelevel.io/blog/what-is-a-linter-and-why-your-team-should-use-it))
+- [Prettier](https://prettier.io/) (Opinionated code formatter)
+- [Figma Scheme](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=5150%3A51) (Application prototype)
 
-### `npm run build`
+## Author
+**made by niloodev | Ezequiel Nilo**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**ANY TIPS OR FEEDBACK IS HIGHLY APPRECIATED! 🐸**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
