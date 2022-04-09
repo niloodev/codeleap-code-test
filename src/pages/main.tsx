@@ -9,7 +9,8 @@ import { getPosts, addPost } from '../actions'
 
 // 🐸: In signup page we get useNavigate hook to make imperative redirecting, now we're using Navigate node
 // to do declarative redirecting, since we're going to protect this route if the *user is not defined in the store.
-import { Navigate } from 'react-router-dom'
+// useNavigate is because of the return button, that redirects in an imperative way!
+import { Navigate, useNavigate } from 'react-router-dom'
 
 // Import application custom components.
 import {
@@ -24,6 +25,7 @@ import {
     ModalTypes,
     SimpleText,
     Button,
+    IconButton,
     Input,
     Box,
 } from '../components'
@@ -32,6 +34,9 @@ import {
 import { AnimatePresence } from 'framer-motion'
 
 export default function Main() {
+    // Get navigate hook.
+    const navigate = useNavigate()
+
     // Set redux hooks.
     const { posts, user } = useSelector(state => state)
     const dispatch = useDispatch()
@@ -44,12 +49,14 @@ export default function Main() {
     // ready-to-use component framework this is the approach that I choosed (I REALLY LOVE FEEDBACK, feel free!)
     const [modalManager, setManager] = useState({
         open: false,
-        type: 'delete',
+        type: '',
         postId: 0,
     })
     // openModal function.
     function openModal(type: keyof typeof ModalTypes, postId: number) {
         if (!postId) throw new Error('ModalError: postId is required')
+        if (posts.filter(post => post.id == postId).length == 0)
+            throw new Error('ModalError: post not found')
         if (modalManager.open) return // cannot open modal if is already open
         setManager({ open: true, type, postId })
     }
@@ -59,7 +66,7 @@ export default function Main() {
         // Get the current posts.
         dispatch(getPosts())
         // Set update frequency.
-        const id = setInterval(() => dispatch(getPosts()), 30000)
+        const id = setInterval(() => dispatch(getPosts()), 5000)
         // Dispose auto update after the component unmounts.
         return () => {
             clearInterval(id)
@@ -79,12 +86,27 @@ export default function Main() {
                 postId={modalManager.postId}
                 type={modalManager.type as keyof typeof ModalTypes}
                 open={modalManager.open}
-                close={() => setManager({ ...modalManager, open: false })}
+                close={() => setManager({ postId: 0, open: false, type: '' })}
             />
             {/* The MainPanel, basically the main wrapper of everything in the main page. */}
             <MainPanel>
                 {/* Title. */}
-                <TitleHeader>CodeLeap Network</TitleHeader>
+                <TitleHeader>
+                    CodeLeap Network
+                    <Flex
+                        style={{
+                            flexFlow: 'row',
+                            width: 'auto',
+                            gap: '20px',
+                            marginLeft: 'auto',
+                            paddingLeft: '37px',
+                        }}
+                    >
+                        <IconButton onClick={() => navigate('/signup')}>
+                            &#10094;
+                        </IconButton>
+                    </Flex>
+                </TitleHeader>
                 {/* Post formulary with custom components. */}
                 <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
                     <Box maxWidth="660px" height="auto">
@@ -137,14 +159,15 @@ export default function Main() {
                                         ? true
                                         : false
                                 }
-                                onClick={() =>
+                                onClick={() => {
                                     dispatch(
                                         addPost(
                                             postForm.title,
                                             postForm.content
                                         )
                                     )
-                                }
+                                    setPostForm({ title: '', content: '' })
+                                }}
                             >
                                 CREATE
                             </Button>

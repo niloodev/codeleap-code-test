@@ -88,7 +88,7 @@ export function PostModel({
                             {moment(created_datetime).fromNow()}
                         </PostText>
                     </Flex>
-                    <PostText primary-color>{content}</PostText>
+                    <PostText data-primary-color>{content}</PostText>
                 </Box>
             </Box>
         </Flex>

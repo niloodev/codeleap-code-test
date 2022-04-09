@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Import motion.
-import { motion } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 
 const Panel = styled(motion.div)`
     height: auto;
@@ -23,15 +23,16 @@ const Panel = styled(motion.div)`
     background-color: var(--quaternary);
 `
 
-export function MainPanel({ children }: { children?: React.ReactNode }) {
+export function MainPanel(props: HTMLMotionProps<'div'>) {
     return (
         <Panel
+            {...props}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
         >
-            {children}
+            {props.children}
         </Panel>
     )
 }

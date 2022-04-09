@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // Import motion.
 import { motion } from 'framer-motion'
 
-// 🐸: The text variants, I really like to define it separateddly. (I'm a little bit "standardization addicted" lately 🤫)
+// 🐸: The text variants, I really like to define it separately. (I'm a little bit "standardization addicted" lately 🤫)
 export const MainText = styled(motion.span)`
     font-weight: 700;
     font-size: 22px;
@@ -25,7 +25,7 @@ export const PostText = styled(motion.span)`
     font-size: 18px;
     word-break: break-word;
 
-    &[primary-color] {
+    &[data-primary-color] {
         color: var(--primary);
     }
 `

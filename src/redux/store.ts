@@ -1,7 +1,7 @@
 // Get configureStore from @reduxjs/toolkit.
 import { configureStore } from '@reduxjs/toolkit'
 
-// Get reducer from redux/reducer.ts.
+// Get reducer from redux/reducer.ts
 import reducer from './reducer'
 
 // 🐸: configureStore is way better than createStore, thats because of the auto thunk middleware implementation

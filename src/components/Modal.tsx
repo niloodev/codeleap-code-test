@@ -20,7 +20,8 @@ import {
 } from './'
 
 // Dispatch hook, its type and the necessary actions.
-import { useDispatch } from 'react-redux'
+// Selector hook, to get post info to edit modal.
+import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
 import { deletePost, patchPost } from '../actions'
 
@@ -41,8 +42,17 @@ const ModalType = {
         postId: number
         dispatch: Dispatch<any>
     }): JSX.Element => {
+        // Get the post info from the redux state.
+        const post = useSelector(state => {
+            return state.posts.filter(p => p.id == postId)[0]
+        })
+
         // Hook that sets the state of the formulary used on Edit Modal.
-        const [postForm, setPostForm] = useState({ title: '', content: '' })
+        const [postForm, setPostForm] = useState({
+            title: post.title,
+            content: post.content,
+        })
+
         return (
             // Basic formulary.
             <Box
