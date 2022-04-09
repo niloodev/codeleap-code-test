@@ -46,7 +46,7 @@ export default function Main() {
 
     // Set state of the modal management, and its function.
     // 🐸: This could be done in a better way with material-ui per example, but since I chose to not use any
-    // ready-to-use component framework this is the approach that I choosed (I REALLY LOVE FEEDBACK, feel free!)
+    // ready-to-use component framework this is the approach that I preferred (I REALLY LOVE FEEDBACK, feel free!)
     const [modalManager, setManager] = useState({
         open: false,
         type: '',
