@@ -2,20 +2,14 @@
 import client from '../axios-instance'
 
 import { AnyAction, Dispatch } from 'redux'
-import { DefaultRootState } from 'react-redux'
-
 import { getPosts, setLoading } from './'
 
-export function addPost(title: string, content: string) {
-    return async function addPostsAsync(
-        dispatch: Dispatch<AnyAction>,
-        getState: () => DefaultRootState
-    ) {
+export function patchPost(id: number, title: string, content: string) {
+    return async function patchPostAsync(dispatch: Dispatch<AnyAction>) {
         dispatch(setLoading(true))
-        await client.post('', {
+        await client.patch(id.toString(), {
             title,
             content,
-            username: getState().user,
         })
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dispatch<any>(getPosts())

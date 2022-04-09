@@ -4,7 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // import motion (to make animated jsx components)
-import { motion, MotionStyle } from 'framer-motion'
+import { HTMLMotionProps, motion, MotionStyle } from 'framer-motion'
 
 const StyledIconButton = styled(motion.div)`
     width: 30px;
@@ -20,12 +20,14 @@ const StyledIconButton = styled(motion.div)`
 export function IconButton({
     children,
     style,
+    ...props
 }: {
     children: React.ReactNode
     style?: MotionStyle
-}) {
+} & HTMLMotionProps<'div'>) {
     return (
         <StyledIconButton
+            {...props}
             style={style}
             transition={{ duration: 0.01 }}
             whileTap={{ scale: 0.95 }}

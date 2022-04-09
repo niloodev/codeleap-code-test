@@ -38,19 +38,25 @@ export default function Main() {
     const [postForm, setPostForm] = useState({ title: '', content: '' })
 
     // modal management functions and state
-    const [modalManager, setManager] = useState({ open: true, type: 'delete' })
-    function openModal(type: keyof typeof ModalTypes) {
-        setManager({ open: true, type })
+    const [modalManager, setManager] = useState({
+        open: false,
+        type: 'delete',
+        postId: 0,
+    })
+    function openModal(type: keyof typeof ModalTypes, postId: number) {
+        if (!postId) throw new Error('ModalError: postId is required')
+        if (modalManager.open) return // cannot open modal if is already open
+        setManager({ open: true, type, postId })
     }
 
     // gets posts after component did mounted, add update function and removes it on component did unmount
     useEffect(() => {
         dispatch(getPosts())
-        const id = setInterval(() => dispatch(getPosts()), 2000)
+        const id = setInterval(() => dispatch(getPosts()), 30000)
         return () => {
             clearInterval(id)
         }
-    })
+    }, [])
 
     // protect route if user is empty
     return user === '' ? (
@@ -61,6 +67,7 @@ export default function Main() {
         <ColumnWrapper>
             {/* modal wrapper toggle */}
             <Modal
+                postId={modalManager.postId}
                 type={modalManager.type as keyof typeof ModalTypes}
                 open={modalManager.open}
                 close={() => setManager({ ...modalManager, open: false })}
@@ -139,6 +146,8 @@ export default function Main() {
                     {posts.map(post => (
                         <PostModel
                             key={post.id}
+                            id={post.id}
+                            openModal={openModal}
                             title={post.title}
                             content={post.content}
                             created_datetime={post.created_datetime}

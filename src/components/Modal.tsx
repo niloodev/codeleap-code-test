@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef } from 'react'
 
 // import styled-components
@@ -16,12 +17,23 @@ import {
     Button,
 } from './'
 
+// delete and patch actions
+import { useDispatch } from 'react-redux'
+import { Dispatch, AnyAction } from 'redux' // type for typescript declarations
+import { deletePost, patchPost } from '../actions'
+
 // types of modal
 const ModalType = {
     edit: ({
         close,
+        postId,
+        dispatch,
         ...props
-    }: HTMLMotionProps<'div'> & { close: () => void }): JSX.Element => {
+    }: HTMLMotionProps<'div'> & {
+        close: () => void
+        postId: number
+        dispatch: Dispatch<any>
+    }): JSX.Element => {
         return (
             <Box
                 {...props}
@@ -51,15 +63,29 @@ const ModalType = {
     },
     delete: ({
         close,
+        postId,
+        dispatch,
         ...props
-    }: HTMLMotionProps<'div'> & { close: () => void }): JSX.Element => {
+    }: HTMLMotionProps<'div'> & {
+        close: () => void
+        postId: number
+        dispatch: Dispatch<any>
+    }): JSX.Element => {
         return (
             <Box {...props} maxWidth="660px" height="125px">
                 <MainText data-bold-off>
                     Are you sure you want to delete this item?
                 </MainText>
                 <InputWrapper style={{ flexFlow: 'row-reverse' }}>
-                    <Button contrast={true}>OK</Button>
+                    <Button
+                        contrast={true}
+                        onClick={() => {
+                            dispatch(deletePost(postId))
+                            close()
+                        }}
+                    >
+                        OK
+                    </Button>
                     <Button contrast={true} onClick={close}>
                         Cancel
                     </Button>
@@ -98,14 +124,19 @@ const ModalBackground = styled(motion.div)`
 export function Modal({
     type,
     open = false,
+    postId,
     close = () => {
         return
     },
 }: {
     type: keyof typeof ModalType
     open?: boolean
+    postId: number
     close: () => void
 }) {
+    // dispatch for modals functionality
+    const dispatch = useDispatch()
+
     // get ModalBody base on modal type provided
     const ModalBody = ModalType[type]
 
@@ -143,7 +174,11 @@ export function Modal({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 >
-                    <ModalBody close={close} />
+                    <ModalBody
+                        close={close}
+                        postId={postId}
+                        dispatch={dispatch}
+                    />
                 </ModalBackground>
             ) : (
                 <></>

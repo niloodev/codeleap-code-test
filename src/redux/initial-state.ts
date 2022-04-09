@@ -14,7 +14,7 @@ export interface InitialState {
 }
 
 export interface PostType {
-    id: string
+    id: number
     username: string
     created_datetime: string
     title: string

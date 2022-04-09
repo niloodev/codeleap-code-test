@@ -2,6 +2,7 @@ import React from 'react'
 
 // import some local components to create PostModel
 import { Flex, Box, TitleHeader, IconButton, PostText, PostTitle } from './'
+import { ModalTypes } from './Modal' // import modal types object
 
 // access state application
 import { useSelector } from 'react-redux'
@@ -14,15 +15,19 @@ import DeleteIcon from './icons/DeleteIcon'
 import EditIcon from './icons/EditIcon'
 
 export function PostModel({
+    id,
     username,
     created_datetime,
     title,
     content,
+    openModal,
 }: {
+    id: number
     username: string
     created_datetime: string
     title: string
     content: string
+    openModal: (type: keyof typeof ModalTypes, id: number) => void
 }) {
     // get user for simple string comparison
     const user = useSelector(state => state.user)
@@ -50,10 +55,10 @@ export function PostModel({
                                 paddingLeft: '37px',
                             }}
                         >
-                            <IconButton>
+                            <IconButton onClick={() => openModal('delete', id)}>
                                 <DeleteIcon />
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={() => openModal('edit', id)}>
                                 <EditIcon />
                             </IconButton>
                         </Flex>
