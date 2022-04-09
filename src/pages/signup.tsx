@@ -28,14 +28,13 @@ export default function SignUp() {
         // wrap all components, and align it to the center
         <CenterWrapper>
             {/* box component with static width and height */}
-            <Box maxWidth="440px" height="180px">
+            <Box toggleAnimation maxWidth="440px" height="180px">
                 {/* title */}
                 <MainText>Welcome to CodeLeap network!</MainText>
                 {/* basic user formulary */}
                 <InputWrapper>
                     <SimpleText>Please enter your username</SimpleText>
                     <Input
-                        textArea={false}
                         inputProps={{
                             placeholder: 'John doe',
                             value: user,

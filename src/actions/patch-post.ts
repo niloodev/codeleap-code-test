@@ -7,7 +7,7 @@ import { getPosts, setLoading } from './'
 export function patchPost(id: number, title: string, content: string) {
     return async function patchPostAsync(dispatch: Dispatch<AnyAction>) {
         dispatch(setLoading(true))
-        await client.patch(id.toString(), {
+        await client.patch(id + '/', {
             title,
             content,
         })

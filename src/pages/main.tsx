@@ -78,7 +78,7 @@ export default function Main() {
                 <TitleHeader>CodeLeap Network</TitleHeader>
                 {/* post formulary */}
                 <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
-                    <Box maxWidth="660px" height="auto" toggleAnimation={false}>
+                    <Box maxWidth="660px" height="auto">
                         <MainText>
                             Hey {user}! What&apos;s on your mind?
                         </MainText>
@@ -86,7 +86,7 @@ export default function Main() {
                         <InputWrapper>
                             <SimpleText>Title</SimpleText>
                             <Input
-                                textArea={false}
+                                loadable
                                 inputProps={{
                                     placeholder: 'Hello world',
                                     value: postForm.title,
@@ -102,7 +102,8 @@ export default function Main() {
                         <InputWrapper>
                             <SimpleText>Content</SimpleText>
                             <Input
-                                textArea={true}
+                                loadable
+                                textArea
                                 textAreaProps={{
                                     placeholder: 'Content here',
                                     value: postForm.content,
@@ -120,13 +121,13 @@ export default function Main() {
                             }}
                         >
                             <Button
+                                loadable
                                 disabled={
                                     postForm.title == '' ||
                                     postForm.content == ''
                                         ? true
                                         : false
                                 }
-                                loadable={true}
                                 onClick={() =>
                                     dispatch(
                                         addPost(

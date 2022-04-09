@@ -25,7 +25,7 @@ export function Box({
     children,
     maxWidth = 'auto',
     height = 'auto',
-    toggleAnimation = true,
+    toggleAnimation = false,
     style,
     ...props
 }: {

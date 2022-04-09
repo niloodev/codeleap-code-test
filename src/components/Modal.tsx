@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // import styled-components
 import styled from 'styled-components'
@@ -19,7 +19,7 @@ import {
 
 // delete and patch actions
 import { useDispatch } from 'react-redux'
-import { Dispatch, AnyAction } from 'redux' // type for typescript declarations
+import { Dispatch } from 'redux' // type for typescript declarations
 import { deletePost, patchPost } from '../actions'
 
 // types of modal
@@ -34,9 +34,11 @@ const ModalType = {
         postId: number
         dispatch: Dispatch<any>
     }): JSX.Element => {
+        const [postForm, setPostForm] = useState({ title: '', content: '' })
         return (
             <Box
                 {...props}
+                toggleAnimation
                 maxWidth="660px"
                 height="310px"
                 style={{
@@ -46,17 +48,56 @@ const ModalType = {
                 <MainText>Edit item</MainText>
                 <InputWrapper>
                     <SimpleText>Title</SimpleText>
-                    <Input inputProps={{ placeholder: 'Hello world' }} />
+                    <Input
+                        loadable
+                        inputProps={{
+                            placeholder: 'Hello world',
+                            value: postForm.title,
+                            onChange: e =>
+                                setPostForm({
+                                    ...postForm,
+                                    title: e.target.value,
+                                }),
+                        }}
+                    />
                 </InputWrapper>
                 <InputWrapper>
                     <SimpleText>Content</SimpleText>
                     <Input
-                        textArea={true}
-                        textAreaProps={{ placeholder: 'Content here' }}
+                        loadable
+                        textArea
+                        textAreaProps={{
+                            placeholder: 'Content here',
+                            value: postForm.content,
+                            onChange: e =>
+                                setPostForm({
+                                    ...postForm,
+                                    content: e.target.value,
+                                }),
+                        }}
                     />
                 </InputWrapper>
                 <InputWrapper style={{ alignItems: 'flex-end' }}>
-                    <Button>SAVE</Button>
+                    <Button
+                        loadable
+                        disabled={
+                            postForm.title == '' || postForm.content == ''
+                                ? true
+                                : false
+                        }
+                        onClick={() => {
+                            dispatch(
+                                patchPost(
+                                    postId,
+                                    postForm.title,
+                                    postForm.content
+                                )
+                            )
+                            close()
+                        }}
+                    >
+                        SAVE
+                    </Button>
                 </InputWrapper>
             </Box>
         )
@@ -72,13 +113,13 @@ const ModalType = {
         dispatch: Dispatch<any>
     }): JSX.Element => {
         return (
-            <Box {...props} maxWidth="660px" height="125px">
+            <Box {...props} toggleAnimation maxWidth="660px" height="125px">
                 <MainText data-bold-off>
                     Are you sure you want to delete this item?
                 </MainText>
                 <InputWrapper style={{ flexFlow: 'row-reverse' }}>
                     <Button
-                        contrast={true}
+                        contrast
                         onClick={() => {
                             dispatch(deletePost(postId))
                             close()
@@ -86,7 +127,7 @@ const ModalType = {
                     >
                         OK
                     </Button>
-                    <Button contrast={true} onClick={close}>
+                    <Button contrast onClick={close}>
                         Cancel
                     </Button>
                 </InputWrapper>

@@ -37,6 +37,7 @@ export function PostModel({
         <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
             {/* box that wrap everything, animation is enabled and gap and padding had a reajust */}
             <Box
+                toggleAnimation
                 maxWidth="722px"
                 height="auto"
                 style={{ gap: '12.5px', padding: '0px' }}
@@ -69,7 +70,6 @@ export function PostModel({
                 {/* box that wrap info / data */}
                 <Box
                     style={{ paddingTop: '0px', border: 'none', gap: '12.5px' }}
-                    toggleAnimation={false}
                 >
                     <Flex
                         style={{
@@ -82,7 +82,7 @@ export function PostModel({
                             {moment(created_datetime).fromNow()}
                         </PostText>
                     </Flex>
-                    <PostText data-color="black">{content}</PostText>
+                    <PostText primary-color>{content}</PostText>
                 </Box>
             </Box>
         </Flex>

@@ -25,7 +25,7 @@ export const PostText = styled(motion.span)`
     font-size: 18px;
     word-break: break-word;
 
-    &[data-color='black'] {
+    &[primary-color] {
         color: var(--primary);
     }
 `

@@ -24,15 +24,9 @@ const TitleHeaderStyled = styled(motion.div)`
 export function TitleHeader({
     children,
     style,
-    absolute = false,
 }: {
     children?: React.ReactNode
     style?: MotionStyle
-    absolute?: boolean
 }) {
-    return (
-        <TitleHeaderStyled data-absolute={absolute} style={style}>
-            {children}
-        </TitleHeaderStyled>
-    )
+    return <TitleHeaderStyled style={style}>{children}</TitleHeaderStyled>
 }
