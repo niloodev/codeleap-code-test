@@ -36,20 +36,20 @@
 
 This application uses the following open-source packages:
 
-### Core ones.
+##### Core ones.
 - [React](https://pt-br.reactjs.org/) (Main "framework")
 - [TypeScript](https://www.typescriptlang.org/) (Strongly typed programming language that builds on JavaScript)
 - [Redux](https://redux.js.org/) (Create a global state to application)
 
-### Stylization.
+##### Stylization.
 - [Styled Components](https://styled-components.com/) (CSS in JS / TS styling)
 - [Framer Motion](https://www.framer.com/motion/) (Animation framework)
 
-### API CRUD and data treatment.
+##### API CRUD and data treatment.
 - [Axios](https://axios-http.com/ptbr/docs/intro) (API requests and CRUD functionalities)
 - [Moment.Js](https://momentjs.com/) (DateTime converter)
 
-### Code formatter, and other environment development tools.
+##### Code formatter, and other environment development tools.
 - [ESLint](https://highlightjs.org/) (Javascript [linter](https://sourcelevel.io/blog/what-is-a-linter-and-why-your-team-should-use-it))
 - [Prettier](https://prettier.io/) (Opinionated code formatter)
 - [Figma Scheme](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=5150%3A51) (Application prototype)
