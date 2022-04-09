@@ -19,12 +19,6 @@ const TitleHeaderStyled = styled(motion.div)`
     margin-bottom: 9px;
     display: flex;
     align-items: center;
-
-    &[data-absolute='true'] {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
 `
 
 export function TitleHeader({

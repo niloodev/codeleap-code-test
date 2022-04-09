@@ -2,13 +2,23 @@
 
 // exports and defines values and types of initial-state
 export default {
+    load: false,
     user: '',
     posts: [],
 }
 
 export interface InitialState {
+    load: boolean
     user: string
-    posts: Array<any>
+    posts: Array<PostType>
+}
+
+export interface PostType {
+    id: string
+    username: string
+    created_datetime: string
+    title: string
+    content: string
 }
 
 declare module 'react-redux' {

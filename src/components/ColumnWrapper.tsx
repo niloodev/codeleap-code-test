@@ -7,6 +7,8 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 const Wrapper = styled(motion.div)`
+    position: relative;
+
     width: 100%;
     height: auto;
 

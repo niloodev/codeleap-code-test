@@ -1,66 +1,84 @@
 import React from 'react'
 
-// import styled-components
-//import styled from 'styled-components'
-
-// import motion (to make animated jsx components)
-//import { motion } from 'framer-motion'
-
 // import some local components to create PostModel
-import { Flex } from './Flex'
-import { Box } from './Box'
-import { TitleHeader } from './TitleHeader'
-import { IconButton } from './IconButton'
-import { PostText } from './Text'
+import { Flex, Box, TitleHeader, IconButton, PostText, PostTitle } from './'
+
+// access state application
+import { useSelector } from 'react-redux'
+
+// moment import, used to translate datetime to a string that contains how much time has passed
+import moment from 'moment'
 
 // icons import
 import DeleteIcon from './icons/DeleteIcon'
 import EditIcon from './icons/EditIcon'
 
-export function PostModel() {
+export function PostModel({
+    username,
+    created_datetime,
+    title,
+    content,
+}: {
+    username: string
+    created_datetime: string
+    title: string
+    content: string
+}) {
+    // get user for simple string comparison
+    const user = useSelector(state => state.user)
+
     return (
+        // flex that wrap entire PostModel
         <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
+            {/* box that wrap everything, animation is enabled and gap and padding had a reajust */}
             <Box
-                maxWidth="660px"
+                maxWidth="722px"
                 height="auto"
-                toggleAnimation={false}
-                style={{ paddingTop: '100px', gap: '12.5px' }}
+                style={{ gap: '12.5px', padding: '0px' }}
             >
-                <TitleHeader absolute={true}>
-                    Name of Post
+                {/* title of the application */}
+                <TitleHeader>
+                    <PostTitle>{title}</PostTitle>
+
+                    {user == username ? (
+                        <Flex
+                            style={{
+                                flexFlow: 'row',
+                                width: 'auto',
+                                gap: '20px',
+                                marginLeft: 'auto',
+                                paddingLeft: '37px',
+                            }}
+                        >
+                            <IconButton>
+                                <DeleteIcon />
+                            </IconButton>
+                            <IconButton>
+                                <EditIcon />
+                            </IconButton>
+                        </Flex>
+                    ) : (
+                        ''
+                    )}
+                </TitleHeader>
+                {/* box that wrap info / data */}
+                <Box
+                    style={{ paddingTop: '0px', border: 'none', gap: '12.5px' }}
+                    toggleAnimation={false}
+                >
                     <Flex
                         style={{
                             flexFlow: 'row',
-                            width: 'auto',
-                            gap: '20px',
-                            marginLeft: 'auto',
+                            justifyContent: 'space-between',
                         }}
                     >
-                        <IconButton>
-                            <DeleteIcon />
-                        </IconButton>
-                        <IconButton>
-                            <EditIcon />
-                        </IconButton>
+                        <PostText>@{username}</PostText>
+                        <PostText>
+                            {moment(created_datetime).fromNow()}
+                        </PostText>
                     </Flex>
-                </TitleHeader>
-                <Flex
-                    style={{ flexFlow: 'row', justifyContent: 'space-between' }}
-                >
-                    <PostText>@Vitor</PostText>
-                    <PostText>25 minutes ago</PostText>
-                </Flex>
-                <PostText data-color="black">
-                    Curabitur suscipit suscipit tellus. Phasellus consectetuer
-                    vestibulum elit. Pellentesque habitant morbi tristique
-                    senectus et netus et malesuada fames ac turpis egestas.
-                    Maecenas egestas arcu quis ligula mattis placerat. Duis vel
-                    nibh at velit scelerisque suscipit. Duis lobortis massa
-                    imperdiet quam. Aenean posuere, tortor sed cursus feugiat,
-                    nunc augue blandit nunc, eu sollicitudin urna dolor sagittis
-                    lacus. Fusce a quam. Nullam vel sem. Nullam cursus lacinia
-                    erat.
-                </PostText>
+                    <PostText data-color="black">{content}</PostText>
+                </Box>
             </Box>
         </Flex>
     )

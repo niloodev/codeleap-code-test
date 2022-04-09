@@ -3,7 +3,8 @@
 // form ones
 export { Button } from './Button'
 export { Input } from './Input'
-export { MainText, SimpleText } from './Text'
+export { MainText, SimpleText, PostText, PostTitle } from './Text'
+export { IconButton } from './IconButton'
 export { PostModel } from './PostModel'
 
 // box ones
@@ -13,3 +14,6 @@ export { ColumnWrapper } from './ColumnWrapper'
 export { Box } from './Box'
 export { MainPanel } from './MainPanel'
 export { TitleHeader } from './TitleHeader'
+
+// modal
+export { Modal, ModalTypes } from './Modal'

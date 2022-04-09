@@ -9,6 +9,12 @@ export default function reducer(state = initialState, action: AnyAction) {
         case 'SET_USER':
             return { ...state, user: action.payload }
             break
+        case 'SET_POSTS':
+            return { ...state, posts: action.payload }
+            break
+        case 'SET_LOADING':
+            return { ...state, load: action.payload }
+            break
     }
     return state
 }

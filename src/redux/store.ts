@@ -1,7 +1,9 @@
 // get createStore form redux
-import { createStore } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 
 // get reducer from reducer.ts
 import reducer from './reducer'
 
-export default createStore(reducer)
+export default configureStore({
+    reducer,
+})

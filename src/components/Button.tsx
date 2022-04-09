@@ -6,6 +6,9 @@ import styled from 'styled-components'
 // import motion (to make animated jsx components)
 import { motion } from 'framer-motion'
 
+// get load status from redux
+import { useSelector } from 'react-redux'
+
 const ButtonStyled = styled(motion.button)`
     width: 111px;
 
@@ -47,6 +50,7 @@ export function Button({
     children,
     contrast = false,
     disabled = false,
+    loadable = false,
     onClick = () => {
         return
     },
@@ -54,14 +58,16 @@ export function Button({
     children: React.ReactNode
     contrast?: boolean
     disabled?: boolean
+    loadable?: boolean
     onClick?: React.MouseEventHandler<HTMLButtonElement>
 }) {
+    const load = useSelector(state => state.load)
     return (
         <ButtonStyled
             transition={{ duration: 0.01 }}
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
-            disabled={disabled}
+            disabled={disabled || (loadable ? load : false)}
             data-contrast={contrast ? 'contrast' : 'non-contrast'}
             onClick={
                 !disabled

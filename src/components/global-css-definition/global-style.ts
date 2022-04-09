@@ -47,6 +47,7 @@ export const GlobalStyle = createGlobalStyle`
     #root {
         height: 100%;
         min-height: 300px;
+        min-width: 260px;
         
         padding: 0;
         margin: 0;

@@ -1,4 +1,4 @@
 // sets user in application global state
-export function SetUser(user: string) {
+export function setUser(user: string) {
     return { type: 'SET_USER', payload: user }
 }

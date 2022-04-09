@@ -1,1 +1,5 @@
-export { SetUser } from './set-user'
+export { setUser } from './set-user'
+export { getPosts } from './get-posts'
+export { setPosts } from './set-posts'
+export { addPost } from './add-post'
+export { setLoading } from './set-loading'

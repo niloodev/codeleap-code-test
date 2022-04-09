@@ -4,7 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // import motion (to make animated jsx components)
-import { motion } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 import { MotionStyle } from 'framer-motion/types/motion/types'
 
 const BoxStyled = styled(motion.div)`
@@ -27,13 +27,14 @@ export function Box({
     height = 'auto',
     toggleAnimation = true,
     style,
+    ...props
 }: {
     children?: React.ReactNode
     maxWidth?: string
     height?: string
     toggleAnimation?: boolean
     style?: MotionStyle
-}) {
+} & HTMLMotionProps<'div'>) {
     const animatePresenceProperties = toggleAnimation
         ? {
               initial: { opacity: 0, scale: 0.6 },
@@ -43,6 +44,7 @@ export function Box({
         : null
     return (
         <BoxStyled
+            {...props}
             style={{ ...style, maxWidth, height }}
             {...animatePresenceProperties}
         >
