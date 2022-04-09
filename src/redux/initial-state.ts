@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
 // Exports and defines values and types of the initial redux state of application.
-export default {
+// Gets the localStorage user value to initialState.
+const initialState: InitialState = {
     load: false,
-    user: '',
+    user: localStorage.getItem('user')
+        ? (localStorage.getItem('user') as string)
+        : '',
     posts: [],
 }
 
@@ -20,6 +23,8 @@ export interface PostType {
     title: string
     content: string
 }
+
+export default initialState
 
 // 🐸: This makes DefaultRootState from react-redux extends InitialState, making it acessible in the whole application
 // through the package.
