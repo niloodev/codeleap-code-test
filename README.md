@@ -30,7 +30,7 @@
 * Hooks ([React Functional Components](https://pt-br.reactjs.org/docs/components-and-props.html)) instead of classes.
 * Must have Signup and Main pages, with two modals. (One to delete, and the other to update posts)
 * Can use any tools available.
-* Follow [Figma Prototype](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=5150%3A51)
+* Follow the [Figma Scheme](https://www.figma.com/file/0OQWLQmU14SF2cDhHPJ2sx/CodeLeap-Engineering-Test?node-id=5150%3A51).
 
 ## Tools
 
