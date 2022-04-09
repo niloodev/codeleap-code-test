@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-    <a href="https://codeleap.co.uk/"> <img src="./codeleap-banner.svg" alt="CodeLeap" width="60%"></a>
+    <a href="https://codeleap.co.uk/"> <img src="./codeleap-banner.svg" alt="CodeLeap" width="100%"></a>
   <br>
     CODE LEAP ENGINEERING TEST by niloodev 🐸
   <br>
