@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-// exports and defines values and types of initial-state
+// Exports and defines values and types of the initial redux state of application.
 export default {
     load: false,
     user: '',
@@ -21,6 +21,8 @@ export interface PostType {
     content: string
 }
 
+// 🐸: This makes DefaultRootState from react-redux extends InitialState, making it acessible in the whole application
+// through the package.
 declare module 'react-redux' {
     export interface DefaultRootState extends InitialState {}
 }

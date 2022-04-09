@@ -1,11 +1,13 @@
+// Import React.
 import React from 'react'
 
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
+// Import motion.
 import { motion } from 'framer-motion'
 
+// Simple flex wrapper, just for standardization.
 const Wrapper = styled(motion.div)`
     position: relative;
 

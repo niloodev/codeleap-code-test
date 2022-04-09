@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-// import createGlobalStyle component of styled-components
+// Import createGlobalStyle component of styled-components.
 import { createGlobalStyle } from 'styled-components'
 
-// export theme-pallete object and type
-// this makes variables easily accessible through javascript, possibilitating easy and soft integrations
+// 🐸: Export theme-pallete object and type, this makes variables easily accessible through javascript and CSS
+// possibilitating easy and soft integrations, like a theme system or just a color update.
 export const themePalette: ThemePalette = {
     colors: {
         primary: '#000000',
@@ -23,9 +23,9 @@ export interface ThemePalette {
     }
 }
 
-// export global-style component
+// Export GlobalStyle component with the stylization.
 export const GlobalStyle = createGlobalStyle`
-    /* font import */
+    /* Roboto font import. */
     @font-face {
         font-family: 'Roboto';
         font-style: normal;
@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
-    /* sets css variables from theme-palette */
+    /* Sets CSS variables from the theme palette. */
     :root {
         --primary: ${props => props.theme.colors.primary};
         --secondary: ${props => props.theme.colors.secondary};
@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
         --quaternary: ${props => props.theme.colors.quaternary};
     }
 
-    /* main classes */
+    /* Core classes and properties. */
     html,
     body,
     #root {
@@ -56,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto';
     }
 
-    /* scrollbar customization */
+    /* Scrollbar customization. */
     ::-webkit-scrollbar {
         width: 4px;
     }
@@ -70,7 +70,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 `
 
-// make styled-components DefaultTheme extends ThemePaletteType from global-style
+// 🐸: Make styled-components DefaultTheme extends ThemePaletteType from global-style, this tells styled-components
+// module that DefaultTheme (accessible through arrow functions in CSS in JS like ${props => props.theme}) is inheriting
+// the properties from ThemePalette.
 declare module 'styled-components' {
     export interface DefaultTheme extends ThemePalette {}
 }

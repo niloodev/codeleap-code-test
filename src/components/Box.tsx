@@ -1,9 +1,10 @@
+// Import React.
 import React from 'react'
 
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
+// Import motion and some motion types to use with motion components (ex: motion.div)
 import { HTMLMotionProps, motion } from 'framer-motion'
 import { MotionStyle } from 'framer-motion/types/motion/types'
 

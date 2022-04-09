@@ -1,4 +1,4 @@
-// export all actions of folder actions/
+// Export all actions of actions/
 export { setUser } from './set-user'
 export { getPosts } from './get-posts'
 export { setPosts } from './set-posts'

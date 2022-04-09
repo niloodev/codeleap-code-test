@@ -1,4 +1,4 @@
-// here we will define base url to the API connection
+// Create axios instance with the CodeLeap provided url for the test.
 import axios from 'axios'
 
 export default axios.create({

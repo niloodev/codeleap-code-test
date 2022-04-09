@@ -1,3 +1,4 @@
+// Simple delete SVG icon.
 import React from 'react'
 
 export default function DeleteIcon() {

@@ -1,4 +1,5 @@
-// add post to api
+// 🐸: Imports axios instance | client, some type definitions of redux (AnyAction and Dispatch) and deletes
+// a post from the application, hitting getPosts() after it to update frontend.
 import client from '../axios-instance'
 
 import { AnyAction, Dispatch } from 'redux'

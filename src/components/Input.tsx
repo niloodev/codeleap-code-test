@@ -1,15 +1,16 @@
+// Import React.
 import React from 'react'
 
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
+// Import motion.
 import { motion, HTMLMotionProps } from 'framer-motion'
 
-// get load state from redux
+// Get react-redux hook.
 import { useSelector } from 'react-redux'
 
-// (I made one component that joins input and textarea, to make easier to applicate it on app)
+// 🐸: I made one component that joins input and textarea components, to make easier to applicate it on app.
 const InputStyled = styled(motion.input)`
     padding: 6px 11px;
     height: 16px;
@@ -27,6 +28,8 @@ const TextAreaStyled = styled(motion.textarea)`
     border: 1px solid var(--tertiary);
 `
 
+// 🐸: Same as Button, Input have a *loadable* property that defines if this component will load together with the application.
+// *textArea* property sets if the component is an Input or a TextArea.
 export function Input({
     textArea = false,
     loadable = false,

@@ -1,10 +1,10 @@
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
+// Import motion.
 import { motion } from 'framer-motion'
 
-// // // text variations
+// 🐸: The text variants, I really like to define it separateddly. (I'm a little bit "standardization addicted" lately 🤫)
 export const MainText = styled(motion.span)`
     font-weight: 700;
     font-size: 22px;

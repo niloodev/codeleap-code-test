@@ -1,15 +1,16 @@
+// Import React.
 import React from 'react'
 
-// get useSelector from redux to check information
+// Get react-redux hooks.
 import { useSelector } from 'react-redux'
 
-// get useNavigate from react-router-dom to redirect if necessary (ProtectRoute)
+// Get useNavigate from react-router-dom to declarative redirecting.
 import { Navigate } from 'react-router-dom'
 
 export default function _404() {
     const user = useSelector(state => state.user)
 
-    // redirect to respective page
+    // 🐸: Checks if the user is empty, redirects to signup, if else redirects to main page.
     return user === '' ? (
         <Navigate to="/signup" replace />
     ) : (

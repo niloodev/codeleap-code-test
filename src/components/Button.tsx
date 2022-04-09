@@ -1,12 +1,13 @@
+// Import React.
 import React from 'react'
 
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
-import { motion } from 'framer-motion'
+// Import motion.
+import { HTMLMotionProps, motion } from 'framer-motion'
 
-// get load status from redux
+// Get react-redux hooks to access redux state.
 import { useSelector } from 'react-redux'
 
 const ButtonStyled = styled(motion.button)`
@@ -46,21 +47,21 @@ const ButtonStyled = styled(motion.button)`
     }
 `
 
+// 🐸: The *contrast* property sets the style variant of the button.
+// The *disabled*, as the name saids, is if the component is disabled or not.
+// The *loadable* sets if the button will be affected by application global loading - when it is making request, per example.
 export function Button({
     children,
     contrast = false,
     disabled = false,
     loadable = false,
-    onClick = () => {
-        return
-    },
+    ...props
 }: {
     children: React.ReactNode
     contrast?: boolean
     disabled?: boolean
     loadable?: boolean
-    onClick?: React.MouseEventHandler<HTMLButtonElement>
-}) {
+} & HTMLMotionProps<'button'>) {
     const load = useSelector(state => state.load)
     return (
         <ButtonStyled
@@ -71,7 +72,7 @@ export function Button({
             data-contrast={contrast ? 'contrast' : 'non-contrast'}
             onClick={
                 !disabled
-                    ? onClick
+                    ? props.onClick
                     : () => {
                           return
                       }

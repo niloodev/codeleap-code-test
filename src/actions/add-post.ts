@@ -1,4 +1,5 @@
-// add post to api
+// 🐸: Imports axios instance | client, some type definitions of redux (AnyAction, Dispatch and DefaultRootState)
+// and other actions. This action is responsible of adding new posts to application, and hitting getPosts() action.
 import client from '../axios-instance'
 
 import { AnyAction, Dispatch } from 'redux'

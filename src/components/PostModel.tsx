@@ -1,19 +1,23 @@
+// Import React.
 import React from 'react'
 
-// import some local components to create PostModel
+// Import some local components to create PostModel.
 import { Flex, Box, TitleHeader, IconButton, PostText, PostTitle } from './'
 import { ModalTypes } from './Modal' // import modal types object
 
-// access state application
+// Access state application, with hook.
 import { useSelector } from 'react-redux'
 
-// moment import, used to translate datetime to a string that contains how much time has passed
+// 🐸: The *moment* import, used to translate datetime to a string that contains how much time has passed!
+// It is very friendly and easy to use, I highly recommend!
 import moment from 'moment'
 
-// icons import
+// Icons import.
 import DeleteIcon from './icons/DeleteIcon'
 import EditIcon from './icons/EditIcon'
 
+// 🐸: It requests the basic properties of the post object defined by the code test.
+// Excepts for openModal, that is a function that opens a modal with the current post id.
 export function PostModel({
     id,
     username,
@@ -29,23 +33,24 @@ export function PostModel({
     content: string
     openModal: (type: keyof typeof ModalTypes, id: number) => void
 }) {
-    // get user for simple string comparison
+    // Get user for simple string comparison. (evaluate if the current user is the "owner" of the post)
     const user = useSelector(state => state.user)
 
     return (
-        // flex that wrap entire PostModel
+        // Flex that wrap entire PostModel.
         <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
-            {/* box that wrap everything, animation is enabled and gap and padding had a reajust */}
+            {/* Box that wrap everything, animation is enabled (toggleAnimation) and gap & padding had a reajust.*/}
             <Box
                 toggleAnimation
                 maxWidth="722px"
                 height="auto"
                 style={{ gap: '12.5px', padding: '0px' }}
             >
-                {/* title of the application */}
+                {/* Title of the application. */}
                 <TitleHeader>
                     <PostTitle>{title}</PostTitle>
 
+                    {/* Checks if the user is the owner, if true renders the edit and delete functions. */}
                     {user == username ? (
                         <Flex
                             style={{
@@ -67,7 +72,8 @@ export function PostModel({
                         ''
                     )}
                 </TitleHeader>
-                {/* box that wrap info / data */}
+
+                {/* Box that wrap info / data. */}
                 <Box
                     style={{ paddingTop: '0px', border: 'none', gap: '12.5px' }}
                 >

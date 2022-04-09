@@ -1,10 +1,11 @@
+// Import React.
 import React from 'react'
 
-// import styled-components
+// Import styled-components.
 import styled from 'styled-components'
 
-// import motion (to make animated jsx components)
-import { motion, MotionStyle } from 'framer-motion'
+// Import motion.
+import { HTMLMotionProps, motion } from 'framer-motion'
 
 const TitleHeaderStyled = styled(motion.div)`
     width: calc(100% - 74px);
@@ -21,12 +22,6 @@ const TitleHeaderStyled = styled(motion.div)`
     align-items: center;
 `
 
-export function TitleHeader({
-    children,
-    style,
-}: {
-    children?: React.ReactNode
-    style?: MotionStyle
-}) {
-    return <TitleHeaderStyled style={style}>{children}</TitleHeaderStyled>
+export function TitleHeader(props: HTMLMotionProps<'div'>) {
+    return <TitleHeaderStyled {...props}>{props.children}</TitleHeaderStyled>
 }

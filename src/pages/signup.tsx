@@ -1,6 +1,7 @@
+// Import React.
 import React from 'react'
 
-// import application components
+// Import application custom components.
 import {
     CenterWrapper,
     Box,
@@ -11,27 +12,27 @@ import {
     Flex as InputWrapper,
 } from '../components'
 
-// get useNavigate hook from react-router-dom to do imperative redirecting
+// Get useNavigate hook from react-router-dom to do imperative redirecting.
 import { useNavigate } from 'react-router-dom'
 
-// get redux data hook, dispatch and necessary actions
+// Get redux data hook, dispatch and necessary actions.
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from '../actions'
 
 export default function SignUp() {
+    // Setting hooks.
     const navigate = useNavigate()
-    // user and dispatch
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
 
     return (
-        // wrap all components, and align it to the center
+        // Wrap all components, and align it to the center.
         <CenterWrapper>
-            {/* box component with static width and height */}
+            {/* 🐸: Box component with maxWidth and height properties, this will be used a lot in the application! */}
             <Box toggleAnimation maxWidth="440px" height="180px">
-                {/* title */}
+                {/* MainText as a title. */}
                 <MainText>Welcome to CodeLeap network!</MainText>
-                {/* basic user formulary */}
+                {/* Basic user formulary, with InputWrapper (Flex) and some basic components. */}
                 <InputWrapper>
                     <SimpleText>Please enter your username</SimpleText>
                     <Input
