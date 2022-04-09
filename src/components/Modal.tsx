@@ -172,7 +172,7 @@ const ModalBackground = styled(motion.div)`
     padding: 40px;
     z-index: 5;
 
-    /* 🐸: I didn't used var() function here because I needed to apply opacity to *tertiary* color, so I choosed
+    /* 🐸: I didn't used var() function here because I needed to apply opacity to *tertiary* hex color, so I choosed
     to use arrow function style. */
     background-color: ${props => props.theme.colors.tertiary + 'CC'};
 
