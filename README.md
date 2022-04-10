@@ -39,7 +39,7 @@ This application uses the following open-source packages:
 ##### Core ones.
 - [React](https://pt-br.reactjs.org/) (Main "framework")
 - [TypeScript](https://www.typescriptlang.org/) (Strongly typed programming language that builds on JavaScript)
-- [Redux](https://redux.js.org/) (Create a global state to application)
+- [Redux](https://redux.js.org/) (Creates a global state to application)
 
 ##### Stylization.
 - [Styled Components](https://styled-components.com/) (CSS in JS / TS styling)
