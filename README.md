@@ -16,7 +16,7 @@
   <a href="#author">Author</a>
 </p>
 
-![screenshot](./codeleap-example.gif)
+![screenshot](./codeleap-example-updated.gif)
 
 ## Proposal
 * The application must have CRUD functionalities; Create Posts, Read Posts, Update Posts and Delete Posts.
