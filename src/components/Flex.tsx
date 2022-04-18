@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Import motion.
-import { motion, MotionStyle } from 'framer-motion'
+import { HTMLMotionProps, motion } from 'framer-motion'
 
 // 🐸: Here I setted some basic values related to application design, highly customizable on style prop.
 const FlexStyled = styled(motion.div)`
@@ -15,12 +15,6 @@ const FlexStyled = styled(motion.div)`
     gap: 10px;
 `
 
-export function Flex({
-    children,
-    style,
-}: {
-    children?: React.ReactNode
-    style?: MotionStyle
-}) {
-    return <FlexStyled style={style}>{children}</FlexStyled>
+export function Flex(props: HTMLMotionProps<'div'>) {
+    return <FlexStyled {...props}>{props.children}</FlexStyled>
 }

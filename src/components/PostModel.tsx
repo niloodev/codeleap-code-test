@@ -38,7 +38,11 @@ export function PostModel({
 
     return (
         // Flex that wrap entire PostModel.
-        <Flex style={{ justifyContent: 'center', flexFlow: 'row' }}>
+        <Flex
+            style={{ justifyContent: 'center', flexFlow: 'row' }}
+            layout
+            layoutScroll
+        >
             {/* Box that wrap everything, animation is enabled (toggleAnimation) and gap & padding had a reajust.*/}
             <Box
                 toggleAnimation

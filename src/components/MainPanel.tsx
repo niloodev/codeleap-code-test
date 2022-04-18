@@ -11,7 +11,7 @@ const Panel = styled(motion.div)`
     height: auto;
     width: 100%;
     max-width: 800px;
-    overflow-x: hidden;
+    overflow: hidden;
 
     gap: 35px;
     padding-bottom: 50px;

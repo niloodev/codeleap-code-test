@@ -22,5 +22,5 @@ const Wrapper = styled(motion.div)`
 `
 
 export function ColumnWrapper({ children }: { children: React.ReactNode }) {
-    return <Wrapper>{children}</Wrapper>
+    return <Wrapper layoutScroll>{children}</Wrapper>
 }
