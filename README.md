@@ -1,16 +1,16 @@
 
 <h1 align="center">
   <br>
-    <a href="https://codeleap.co.uk/"> <img src="./codeleap-banner.svg" alt="CodeLeap" width="100%"></a>
+    <a href="https://codeleap.co.uk/"> <img src="./codeleap-banner.svg" alt="CodeLeap" width="55%"></a>
   <br>
-    CODE LEAP ENGINEERING TEST by niloodev 🐸
+    CODE LEAP ENGINEERING TEST
   <br>
 </h1>
 
 <h4 align="center">A simple CRUD application builded with <a href="https://pt-br.reactjs.org/" target="_blank">React</a> and <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a></h4>
 
 <p align="center">
-  <a href="https://codeleap-code-test-psi.vercel.app/" target="_blank">Real-Time</a> •
+  <a href="https://codeleap-code-test-psi.vercel.app/" target="_blank">Realtime</a> •
   <a href="#proposal">Proposal</a> •
   <a href="#tools">Tools</a> •
   <a href="#author">Author</a>
@@ -47,7 +47,7 @@ This application uses the following open-source packages:
 
 ##### API CRUD and data treatment.
 - [Axios](https://axios-http.com/ptbr/docs/intro) (API requests and CRUD functionalities)
-- [Moment.Js](https://momentjs.com/) (DateTime converter)
+- [Moment.js](https://momentjs.com/) (DateTime converter)
 
 ##### Code formatter, and other environment development tools.
 - [ESLint](https://highlightjs.org/) (Javascript [linter](https://sourcelevel.io/blog/what-is-a-linter-and-why-your-team-should-use-it))
